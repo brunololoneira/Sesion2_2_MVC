@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Amigos.Models.TuProyecto.Models.Amigo>
+
+@{
+    ViewData["Title"] = "Localizador de Amigos";
+}
+
+<h2 class="text-center">Localizador de Amigos</h2>
+<p class="text-center text-muted">Administra tu lista de amigos y sus ubicaciones.</p>
+
+<div class="container">
+    <div class="row">
+        <!-- Mapa -->
+        <div class="col-md-6">
+            <h3>Mapa</h3>
+            <p>Aquí se mostrará un mapa con las ubicaciones de tus amigos.</p>
+            <div style="width: 100%; height: 400px; background-color: #f1f3f5; text-align: center; line-height: 400px; border-radius: 10px; border: 1px solid #ced4da;">
+                <strong>MAPA (Ejemplo)</strong>
+            </div>
+        </div>
+
+        <!-- Lista de amigos -->
+        <div class="col-md-6">
+            <h3>Lista de Amigos</h3>
+            <a asp-action="Filter" class="btn btn-primary mb-3">🔍 Filtrar Amigos</a>
+            <a asp-action="Create" class="btn btn-success mb-3">➕ Añadir Amigo</a>
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Longi)</th>
+                        <th>@Html.DisplayNameFor(model => model.Lati)</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Longi)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Lati)</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-info btn-sm">✏️ Editar</a>
+                                    <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary btn-sm">🔍 Detalles</a>
+                                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm">🗑️ Eliminar</a>
+                                </td>
+                            </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

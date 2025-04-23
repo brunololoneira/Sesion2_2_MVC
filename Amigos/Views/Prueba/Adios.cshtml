@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Adiós</h2>
+<p>El mensaje se mostrará @ViewBag.veces veces:</p>
+
+<ul>
+    @for (int i = 0; i < ViewBag.veces; i++)
+    {
+        <li>@ViewBag.valor</li>
+    }
+</ul>
