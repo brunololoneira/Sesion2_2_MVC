@@ -1,0 +1,53 @@
+﻿@model Amigos.Models.TuProyecto.Models.Amigo
+@{
+    ViewData["Title"] = localizer["Create"];  // Aquí se traduce el título de la página
+}
+
+<h1>@localizer["Create"]</h1>  <!-- Traducimos el título del encabezado -->
+
+@* Debugging Output *@
+<p>@localizer["Create"]</p>
+
+<h4>@localizer["Amigo"]</h4>  <!-- Traducimos "Amigo" -->
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">@localizer["Name"]</label>  <!-- Traducimos la etiqueta del campo "Name" -->
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Longi" class="control-label">@localizer["Longitude"]</label>  <!-- Traducimos la etiqueta del campo "Longitude" -->
+                <input asp-for="Longi" class="form-control" />
+                <span asp-validation-for="Longi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Lati" class="control-label">@localizer["Latitude"]</label>  <!-- Traducimos la etiqueta del campo "Latitude" -->
+                <input asp-for="Lati" class="form-control" />
+                <span asp-validation-for="Lati" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="@localizer["Create"]" class="btn btn-primary" />  <!-- Traducimos el texto del botón -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@localizer["BackToList"]</a>  <!-- Traducimos el enlace para volver a la lista -->
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

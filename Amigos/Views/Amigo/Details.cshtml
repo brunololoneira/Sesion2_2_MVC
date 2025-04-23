@@ -1,0 +1,38 @@
+﻿@model Amigos.Models.TuProyecto.Models.Amigo
+
+@{
+    ViewData["Title"] = localizer["Details"];
+}
+
+<h1>@localizer["Details"]</h1>
+
+<div>
+    <h4>@localizer["Amigo"]</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @localizer["Name"] <!-- Traducido dinámicamente -->
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @localizer["Longitude"] <!-- Traducido dinámicamente -->
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Longi)
+        </dd>
+        <dt class="col-sm-2">
+            @localizer["Latitude"] <!-- Traducido dinámicamente -->
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lati)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID">@localizer["Edit"]</a> <!-- Traducido dinámicamente -->
+    |
+    <a asp-action="Index">@localizer["BackToList"]</a> <!-- Traducido dinámicamente -->
+</div>

@@ -1,0 +1,47 @@
+﻿@model Amigos.Models.TuProyecto.Models.Amigo
+
+@{
+    ViewData["Title"] = localizer["Edit"];
+}
+
+<h1>@localizer["Edit"]</h1>
+
+<h4>@localizer["Amigo"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">@localizer["Name"]</label> <!-- Traducido dinámicamente -->
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Longi" class="control-label">@localizer["Longitude"]</label> <!-- Traducido dinámicamente -->
+                <input asp-for="Longi" class="form-control" />
+                <span asp-validation-for="Longi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lati" class="control-label">@localizer["Latitude"]</label> <!-- Traducido dinámicamente -->
+                <input asp-for="Lati" class="form-control" />
+                <span asp-validation-for="Lati" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@localizer["Save"]" class="btn btn-primary" /> <!-- Traducido dinámicamente -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@localizer["BackToList"]</a> <!-- Traducido dinámicamente -->
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
